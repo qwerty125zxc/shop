@@ -1,0 +1,23 @@
+<h1>index</h1>
+<p>
+<% if !user_signed_in? %>
+<%= link_to "Login or register", new_user_session_path %><br>
+<% end %>
+<% if user_signed_in? %>
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<% end %>
+</p>
+<% if user_signed_in? %>
+<%= link_to "New product", new_product_path %><hr>
+<% end %>
+<% if @prods == [] %>
+<p>No products</p>
+<% else %>
+<% @prods.each do | pr | %>
+<p>User <b><%= pr.user.email %></b> added: <br/>
+<%= pr.title %><br/>
+<%= pr.description %><br/>
+<%= pr.price %><br/></p>
+<hr>
+<% end %>
+<% end %>
