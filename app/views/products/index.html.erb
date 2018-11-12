@@ -14,10 +14,11 @@
 <p>No products</p>
 <% else %>
 <% @prods.each do | pr | %>
-<p>User <b><%= pr.user.email %></b> added: <br/>
-<%= pr.title %><br/>
-<%= pr.description %><br/>
-<%= pr.price %><br/></p>
+<p>User <b><%= pr.user.email %></b> added product: <br/>
+Title: <%= pr.title %><br/>
+Description: <%= pr.description %><br/>
+Price: <%= pr.price %><br/></p>
+
 <hr>
 <% end %>
 <% end %>

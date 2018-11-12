@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @prods = Product.all
   end
@@ -12,6 +14,10 @@ class ProductsController < ApplicationController
     if @prod.save
     redirect_to root_path
     end
+  end
+
+  def show
+    @prod = Product.find_by(id:params[:id])
   end
 
   private
